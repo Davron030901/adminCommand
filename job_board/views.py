@@ -5,7 +5,7 @@ def index(request):
     # jobs = JobPosting.objects.all()
     # jobs = JobPosting.objects.filter(is_active=True)
     # print(jobs)
-    active_postings=JobPosting.objects.filter(is_active=False)
+    active_postings=JobPosting.objects.filter(is_active=True)
     context={
         "job_postings":active_postings
     }
@@ -13,7 +13,7 @@ def index(request):
 
 def job_detail(request, pk):
     # job_posting=JobPosting.objects.get(pk=pk)
-    job_posting=get_object_or_404(JobPosting, pk=pk,is_active=False)
+    job_posting=get_object_or_404(JobPosting, pk=pk,is_active=True)
     context={
         "posting":job_posting
     }
